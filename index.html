@@ -58,6 +58,7 @@
                 <a href="#about" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium transition-colors duration-200">About</a>
                 <a href="#materials" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium transition-colors duration-200">Materials</a>
                 <a href="#syllabus" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium transition-colors duration-200">Syllabus</a>
+                <a href="#feedback" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium transition-colors duration-200">Feedback</a>
                 <a href="#contact" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium transition-colors duration-200">Contact</a>
                 <button id="themeToggle" class="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500">
                     <svg id="sunIcon" class="h-5 w-5 hidden text-yellow-500 dark:text-yellow-400" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
@@ -244,7 +245,7 @@
                         Access Now
                     </a>
                 </div>
-                <!-- New Material Card for Mechanical Workshop Experiment Notes -->
+                <!-- New Material Card for Mechanical Workshop Experience -->
                 <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 flex flex-col items-center text-center transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
                     <img src="https://placehold.co/100x100/808080/ffffff?text=EXP" alt="Workshop icon" class="w-16 h-16 mb-4 rounded-full bg-gray-400 p-2">
                     <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Mechanical Workshop Experience</h3>
@@ -280,6 +281,39 @@
                         View Syllabus
                     </a>
                 </div>
+            </div>
+        </section>
+
+        <!-- Feedback Section -->
+        <section id="feedback" class="py-16">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">
+                    Give Us Your Feedback
+                </h2>
+                <p class="text-gray-600 dark:text-gray-400 mt-4 max-w-xl mx-auto">
+                    Your suggestions help us improve. Please share your thoughts and ideas with us.
+                </p>
+            </div>
+            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 mx-auto max-w-2xl">
+                <form id="feedbackForm" onsubmit="return false;" class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Your Name</label>
+                        <input type="text" id="name" name="name" placeholder="John Doe" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 bg-gray-50 dark:bg-gray-700 dark:text-white" required>
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="you@example.com" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 bg-gray-50 dark:bg-gray-700 dark:text-white" required>
+                    </div>
+                    <div>
+                        <label for="feedback" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Your Feedback</label>
+                        <textarea id="feedback" name="feedback" rows="4" placeholder="Enter your feedback here..." class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 bg-gray-50 dark:bg-gray-700 dark:text-white" required></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="bg-indigo-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-indigo-700 transition-colors duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50">
+                            Submit Feedback
+                        </button>
+                    </div>
+                </form>
             </div>
         </section>
 
@@ -356,6 +390,14 @@
         closeMessageBox.addEventListener('click', () => {
             messageBox.style.display = 'none';
             messageBoxOverlay.style.display = 'none';
+        });
+
+        // Handle form submission to show a message
+        const feedbackForm = document.getElementById('feedbackForm');
+        feedbackForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            showMessage("Thank you for your feedback! Your message has been submitted successfully.");
+            feedbackForm.reset();
         });
     </script>
 </body>
