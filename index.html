@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autonomous Study Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+        }
+        .message-box {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            z-index: 1000;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+        }
+        .message-box-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 transition-colors duration-300">
+
+    <!-- Message Box UI -->
+    <div id="messageBoxOverlay" class="message-box-overlay"></div>
+    <div id="messageBox" class="message-box text-center">
+        <p id="messageBoxText" class="text-gray-800 text-lg font-medium mb-4"></p>
+        <button id="closeMessageBox" class="bg-indigo-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-indigo-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50">OK</button>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header class="bg-white dark:bg-gray-800 shadow-md sticky top-0 z-50 transition-colors duration-300">
+        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-gray-900 dark:text-white rounded-md p-2 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200">
+                <span class="text-indigo-600">Study</span>Sphere
+            </a>
+            <div class="flex items-center space-x-4">
+                <a href="#about" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium transition-colors duration-200">About</a>
+                <a href="#materials" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium transition-colors duration-200">Materials</a>
+                <a href="#syllabus" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium transition-colors duration-200">Syllabus</a>
+                <a href="#contact" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium transition-colors duration-200">Contact</a>
+                <button id="themeToggle" class="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    <svg id="sunIcon" class="h-5 w-5 hidden text-yellow-500 dark:text-yellow-400" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                    <svg id="moonIcon" class="h-5 w-5 text-indigo-600 dark:text-indigo-400" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-4 py-12">
+        
+        <!-- Hero Section -->
+        <section class="text-center py-20">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-gray-900 dark:text-white leading-tight mb-4">
+                Master Your Learning Journey
+            </h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
+                Discover a vast collection of study materials and tools designed for self-directed learning. Take control of your education and learn at your own pace, on your own terms.
+            </p>
+            <button class="bg-indigo-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-indigo-700 transition-colors duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50">
+                Start Exploring
+            </button>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-16">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/2">
+                    <img src="https://placehold.co/600x400/818cf8/ffffff?text=Autonomous+Study" alt="Illustration of a person studying autonomously" class="rounded-2xl shadow-xl transform transition-transform duration-300 hover:scale-105 w-full">
+                </div>
+                <div class="lg:w-1/2">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-6">
+                        What is Autonomous Learning?
+                    </h2>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
+                        Autonomous learning is an approach to education where students take an active role in their learning process. This involves setting goals, choosing resources, and evaluating their own progress without constant supervision. Our platform empowers you to be your own teacher, providing the tools and materials you need to succeed.
+                    </p>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                        By embracing autonomy, you develop critical thinking, problem-solving skills, and a lifelong passion for knowledge. This isn't just about what you learn, but how you learn.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Materials Section -->
+        <section id="materials" class="py-16">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">
+                    Explore Our Materials
+                </h2>
+                <p class="text-gray-600 dark:text-gray-400 mt-4 max-w-xl mx-auto">
+                    Choose your path and dive into high-quality resources. Our library is constantly growing to support your academic and personal goals.
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Material Card 1 -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 flex flex-col items-center text-center transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+                    <img src="https://placehold.co/100x100/ec4899/ffffff?text=DOCS" alt="Documents icon" class="w-16 h-16 mb-4 rounded-full bg-pink-100 p-2">
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Detailed Articles</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                        In-depth articles covering a wide range of subjects, from science to history.
+                    </p>
+                    <a href="#" class="text-indigo-600 dark:text-indigo-400 font-medium hover:underline">
+                        Read Now
+                    </a>
+                </div>
+
+                <!-- Material Card 2 (YouTube Playlist for 1st Year) -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 flex flex-col items-center text-center transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+                    <img src="https://placehold.co/100x100/60a5fa/ffffff?text=YT" alt="YouTube icon" class="w-16 h-16 mb-4 rounded-full bg-blue-100 p-2">
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">1st Year YouTube Videos</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                        Access a curated playlist of video lectures and tutorials for first-year students.
+                    </p>
+                    <a href="https://youtube.com/playlist?list=PLdo5W4Nhv31a8UcMN9-35ghv8qyFWD9_S&si=GSc4kCEN5eT1GMoN" target="_blank" rel="noopener noreferrer" class="text-indigo-600 dark:text-indigo-400 font-medium hover:underline">
+                        Watch Playlist
+                    </a>
+                </div>
+
+                <!-- New Material Card for FSP C++ -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 flex flex-col items-center text-center transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+                    <img src="https://placehold.co/100x100/5a5a5a/ffffff?text=C++" alt="C++ icon" class="w-16 h-16 mb-4 rounded-full bg-gray-300 p-2">
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">FSP Material (C++)</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                        Find resources and study materials for your FSP C++ course here.
+                    </p>
+                    <a href="https://drive.google.com/drive/folders/1091ekWcBkETbUzSHoU9VJk5Qsv1TIykw?usp=drive_link" target="_blank" rel="noopener noreferrer" class="text-indigo-600 dark:text-indigo-400 font-medium hover:underline">
+                        Access Now
+                    </a>
+                </div>
+
+                <!-- New Material Card for FSP Java -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 flex flex-col items-center text-center transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+                    <img src="https://placehold.co/100x100/f39c12/ffffff?text=JAVA" alt="Java icon" class="w-16 h-16 mb-4 rounded-full bg-yellow-400 p-2">
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">FSP Material (Java)</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                        Find resources and study materials for your FSP Java course here.
+                    </p>
+                    <a href="https://drive.google.com/drive/folders/1mJOOcj4PSFhkcRRJaB0qMALYyPV5vLk_?usp=sharing" target="_blank" rel="noopener noreferrer" class="text-indigo-600 dark:text-indigo-400 font-medium hover:underline">
+                        Access Now
+                    </a>
+                </div>
+
+                <!-- New Material Card for Organizer -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 flex flex-col items-center text-center transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+                    <img src="https://placehold.co/100x100/4c7f99/ffffff?text=ORG" alt="Organizer icon" class="w-16 h-16 mb-4 rounded-full bg-gray-400 p-2">
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Organizer</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                        A structured collection of materials to help you stay organized.
+                    </p>
+                    <a href="https://drive.google.com/drive/folders/1hX4r__tLQczPKUNa54pTDLFWV1511POK?usp=sharing" target="_blank" rel="noopener noreferrer" class="text-indigo-600 dark:text-indigo-400 font-medium hover:underline">
+                        Access Now
+                    </a>
+                </div>
+
+                <!-- New Material Card for MAKAUT PYQs -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 flex flex-col items-center text-center transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+                    <img src="https://placehold.co/100x100/805ad5/ffffff?text=MAKAUT" alt="MAKAUT icon" class="w-16 h-16 mb-4 rounded-full bg-purple-500 p-2">
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">MAKAUT PYQs</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                        Access past year question papers for MAKAUT university exams.
+                    </p>
+                    <a href="https://drive.google.com/drive/folders/1Tl3Nxhepisu8g-O2JwFvTXW8vQVzu_Ht?usp=sharing" target="_blank" rel="noopener noreferrer" class="text-indigo-600 dark:text-indigo-400 font-medium hover:underline">
+                        Access Now
+                    </a>
+                </div>
+
+                <!-- New Material Card for Autonomous PYQs -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 flex flex-col items-center text-center transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+                    <img src="https://placehold.co/100x100/e57373/ffffff?text=PYQS" alt="Autonomous PYQs icon" class="w-16 h-16 mb-4 rounded-full bg-red-400 p-2">
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Autonomous PYQs</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                        Practice with a dedicated set of past year questions for autonomous learning.
+                    </p>
+                    <a href="https://drive.google.com/drive/folders/1MsL7IrzXikPRCBxl69dFHvBbjQquTZ7I?usp=sharing" target="_blank" rel="noopener noreferrer" class="text-indigo-600 dark:text-indigo-400 font-medium hover:underline">
+                        Access Now
+                    </a>
+                </div>
+
+                <!-- New Material Card for Au Sir Assignment Questions -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 flex flex-col items-center text-center transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+                    <img src="https://placehold.co/100x100/42a5f5/ffffff?text=Q%26A" alt="Assignment icon" class="w-16 h-16 mb-4 rounded-full bg-blue-400 p-2">
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Au Sir Assignment Questions</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                        A collection of assignment questions from Au Sir.
+                    </p>
+                    <a href="https://drive.google.com/drive/folders/1MsL7IrzXikPRCBxl69dFHvBbjQquTZ7I?usp=sharing" target="_blank" rel="noopener noreferrer" class="text-indigo-600 dark:text-indigo-400 font-medium hover:underline">
+                        Access Now
+                    </a>
+                </div>
+                
+                <!-- New Material Card for C Programming Notes -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 flex flex-col items-center text-center transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+                    <img src="https://placehold.co/100x100/007ACC/ffffff?text=C" alt="C Programming icon" class="w-16 h-16 mb-4 rounded-full bg-blue-300 p-2">
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">C Programming Notes</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                        Comprehensive notes to help you master C programming.
+                    </p>
+                    <a href="https://drive.google.com/drive/folders/1ybkog3GBmNdmRoEf9eGr1hewjDY45LPG?usp=sharing" target="_blank" rel="noopener noreferrer" class="text-indigo-600 dark:text-indigo-400 font-medium hover:underline">
+                        Access Now
+                    </a>
+                </div>
+
+                <!-- Material Card 3 (Video Lectures) -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 flex flex-col items-center text-center transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+                    <img src="https://placehold.co/100x100/60a5fa/ffffff?text=VIDS" alt="Videos icon" class="w-16 h-16 mb-4 rounded-full bg-blue-100 p-2">
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Video Lectures</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                        Learn visually with curated video lectures and tutorials from experts.
+                    </p>
+                    <a href="#" class="text-indigo-600 dark:text-indigo-400 font-medium hover:underline">
+                        Watch Now
+                    </a>
+                </div>
+
+                <!-- New Material Card for Google Drive -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 flex flex-col items-center text-center transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+                    <img src="https://placehold.co/100x100/f87171/ffffff?text=DRIVE" alt="Google Drive icon" class="w-16 h-16 mb-4 rounded-full bg-red-100 p-2">
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Google Drive Materials</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                        Access all our shared study materials directly from our Google Drive folder.
+                    </p>
+                    <a href="https://drive.google.com/drive/folders/1B0-XSDvyJZ-SeA4jkOlaDEEdfn3ao1bu?usp=drive_link" target="_blank" rel="noopener noreferrer" class="text-indigo-600 dark:text-indigo-400 font-medium hover:underline">
+                        Access Now
+                    </a>
+                </div>
+                <!-- New Material Card for Mechanical Workshop Experiment Notes -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 flex flex-col items-center text-center transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+                    <img src="https://placehold.co/100x100/808080/ffffff?text=EXP" alt="Workshop icon" class="w-16 h-16 mb-4 rounded-full bg-gray-400 p-2">
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Mechanical Workshop Experience</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                        A collection of notes and resources from the mechanical workshop experience.
+                    </p>
+                    <a href="https://drive.google.com/drive/folders/12bD8p5IOX-p1sFawZQ_aJ2-niwqwjqOq?usp=sharing" target="_blank" rel="noopener noreferrer" class="text-indigo-600 dark:text-indigo-400 font-medium hover:underline">
+                        Access Now
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Syllabus Section -->
+        <section id="syllabus" class="py-16">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">
+                    Course Syllabus
+                </h2>
+                <p class="text-gray-600 dark:text-gray-400 mt-4 max-w-xl mx-auto">
+                    Stay on track with the official course syllabus and structure.
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Syllabus Card -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 flex flex-col items-center text-center transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+                    <img src="https://placehold.co/100x100/ffbf00/ffffff?text=SYL" alt="Syllabus icon" class="w-16 h-16 mb-4 rounded-full bg-yellow-100 p-2">
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Detailed Syllabus</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                        Find the complete course outline, topics, and learning objectives here.
+                    </p>
+                    <a href="https://drive.google.com/drive/folders/1tq5vA9ik5pSTvW6xo0lctsDP9yCKpkPj?usp=drive_link" target="_blank" rel="noopener noreferrer" class="text-indigo-600 dark:text-indigo-400 font-medium hover:underline">
+                        View Syllabus
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-gray-800 dark:bg-gray-900 text-white py-8 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-sm text-gray-400">&copy; 2023 StudySphere. All rights reserved.</p>
+            <div class="mt-4 space-x-4">
+                <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">Privacy Policy</a>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">Terms of Service</a>
+            </div>
+            <!-- New contact information -->
+            <div class="mt-8 pt-4 border-t border-gray-700 dark:border-gray-600">
+                <h3 class="text-lg font-semibold text-gray-200 mb-2">Contact Navneet Singh</h3>
+                <p class="text-sm text-gray-400">
+                    Phone: <a href="tel:6205491750" class="hover:underline">6205491750</a>
+                </p>
+                <p class="text-sm text-gray-400">
+                    Email: <a href="mailto:navneetsinghsindri@gmail.com" class="hover:underline">navneetsinghsindri@gmail.com</a>
+                </p>
+                <p class="text-sm text-gray-400">
+                    LinkedIn: <a href="https://www.linkedin.com/in/navneet-singh-8b518a277" target="_blank" rel="noopener noreferrer" class="hover:underline">Navneet Singh</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const body = document.body;
+        const themeToggle = document.getElementById('themeToggle');
+        const sunIcon = document.getElementById('sunIcon');
+        const moonIcon = document.getElementById('moonIcon');
+        const messageBox = document.getElementById('messageBox');
+        const messageBoxOverlay = document.getElementById('messageBoxOverlay');
+        const messageBoxText = document.getElementById('messageBoxText');
+        const closeMessageBox = document.getElementById('closeMessageBox');
+
+        // Check for saved theme preference or system preference
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            body.classList.add('dark');
+            sunIcon.classList.remove('hidden');
+            moonIcon.classList.add('hidden');
+        } else {
+            body.classList.remove('dark');
+            sunIcon.classList.add('hidden');
+            moonIcon.classList.remove('hidden');
+        }
+
+        // Theme toggle functionality
+        themeToggle.addEventListener('click', () => {
+            if (body.classList.contains('dark')) {
+                body.classList.remove('dark');
+                localStorage.theme = 'light';
+                sunIcon.classList.add('hidden');
+                moonIcon.classList.remove('hidden');
+            } else {
+                body.classList.add('dark');
+                localStorage.theme = 'dark';
+                sunIcon.classList.remove('hidden');
+                moonIcon.classList.add('hidden');
+            }
+        });
+
+        // Function to show a message box
+        function showMessage(message) {
+            messageBoxText.textContent = message;
+            messageBox.style.display = 'flex';
+            messageBoxOverlay.style.display = 'block';
+        }
+
+        // Event listener to close the message box
+        closeMessageBox.addEventListener('click', () => {
+            messageBox.style.display = 'none';
+            messageBoxOverlay.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
