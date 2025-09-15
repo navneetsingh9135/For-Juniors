@@ -225,6 +225,18 @@
                         Access Now
                     </a>
                 </div>
+                
+                <!-- New Material Card for GeeksforGeeks C Notes -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 flex flex-col items-center text-center transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+                    <img src="https://placehold.co/100x100/4CAF50/ffffff?text=GFG" alt="GeeksforGeeks icon" class="w-16 h-16 mb-4 rounded-full bg-green-100 p-2">
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">GeeksforGeeks C Notes</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                        Access comprehensive C programming tutorials and notes from GeeksforGeeks.
+                    </p>
+                    <a href="https://www.geeksforgeeks.org/c/c-programming-language/" target="_blank" rel="noopener noreferrer" class="text-indigo-600 dark:text-indigo-400 font-medium hover:underline">
+                        Read Now
+                    </a>
+                </div>
 
                 <!-- Material Card 3 (Video Lectures) -->
                 <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 flex flex-col items-center text-center transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
@@ -891,108 +903,193 @@
         const codingProblems = {
             c: [
                 {
-                    title: "Print 'Hello, World!'",
-                    description: "Write a C program that prints the text 'Hello, World!' to the console.",
+                    title: "Find the Maximum Element in an Array",
+                    description: "Write a C function `findMax(int arr[], int n)` that takes an array of integers and its size, and returns the maximum element in the array.",
                     code: `#include <stdio.h>
 
-int main() {
+int findMax(int arr[], int n) {
     // Write your code here
-    printf("Hello, World!");
+    int max = arr[0];
+    for (int i = 1; i < n; i++) {
+        if (arr[i] > max) {
+            max = arr[i];
+        }
+    }
+    return max;
+}
+
+int main() {
+    int nums[] = {3, 7, 2, 9, 5};
+    int n = sizeof(nums) / sizeof(nums[0]);
+    printf("The maximum element is: %d", findMax(nums, n));
     return 0;
 }`
                 },
                 {
-                    title: "Sum of Two Numbers",
-                    description: "Write a C program to take two integers from the user and print their sum.",
+                    title: "Reverse a String",
+                    description: "Write a C function to reverse a string in-place. The function should take a character pointer to the string as an argument.",
                     code: `#include <stdio.h>
+#include <string.h>
+
+void reverseString(char* str) {
+    // Write your code here
+    int l = 0, r = strlen(str) - 1;
+    char temp;
+    while (l < r) {
+        temp = str[l];
+        str[l] = str[r];
+        str[r] = temp;
+        l++;
+        r--;
+    }
+}
 
 int main() {
-    int a, b;
-    printf("Enter two integers: ");
-    scanf("%d %d", &a, &b);
-    int sum = a + b;
-    printf("Sum: %d", sum);
+    char myString[] = "leetcode";
+    reverseString(myString);
+    printf("Reversed string: %s", myString);
     return 0;
 }`
                 }
             ],
             java: [
                 {
-                    title: "Print 'Hello, World!'",
-                    description: "Write a Java program that prints the text 'Hello, World!' to the console.",
-                    code: `class HelloWorld {
-    public static void main(String[] args) {
+                    title: "Two Sum",
+                    description: "Given an array of integers `nums` and an integer `target`, return indices of the two numbers such that they add up to `target`. You may assume that each input has exactly one solution, and you may not use the same element twice.",
+                    code: `import java.util.HashMap;
+import java.util.Map;
+
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
         // Write your code here
-        System.out.println("Hello, World!");
+        Map<Integer, Integer> numMap = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            int complement = target - nums[i];
+            if (numMap.containsKey(complement)) {
+                return new int[] { numMap.get(complement), i };
+            }
+            numMap.put(nums[i], i);
+        }
+        return new int[] {};
     }
-}`
+}
+
+// Example usage in main method:
+// int[] nums = {2, 7, 11, 15};
+// int target = 9;
+// int[] result = new Solution().twoSum(nums, target);
+// System.out.println("Indices: [" + result[0] + ", " + result[1] + "]");
+`
                 },
                 {
-                    title: "Check Even or Odd",
-                    description: "Write a Java program to check if an integer is even or odd.",
-                    code: `import java.util.Scanner;
-
-class CheckEvenOdd {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter an integer: ");
-        int num = scanner.nextInt();
-        if (num % 2 == 0) {
-            System.out.println(num + " is Even");
-        } else {
-            System.out.println(num + " is Odd");
+                    title: "Valid Palindrome",
+                    description: "Given a string `s`, return `true` if it is a palindrome, and `false` otherwise. A palindrome is a sequence that reads the same forwards and backwards.",
+                    code: `class Solution {
+    public boolean isPalindrome(String s) {
+        // Write your code here
+        StringBuilder cleaned = new StringBuilder();
+        for (char c : s.toCharArray()) {
+            if (Character.isLetterOrDigit(c)) {
+                cleaned.append(Character.toLowerCase(c));
+            }
         }
+        String cleanedString = cleaned.toString();
+        String reversedString = cleaned.reverse().toString();
+        return cleanedString.equals(reversedString);
     }
 }`
                 }
             ],
             cpp: [
                 {
-                    title: "Print 'Hello, World!'",
-                    description: "Write a C++ program that prints the text 'Hello, World!' to the console.",
+                    title: "Valid Parentheses",
+                    description: "Given a string `s` containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid. An input string is valid if open brackets are closed by the same type of brackets in the correct order.",
                     code: `#include <iostream>
+#include <string>
+#include <stack>
+
+class Solution {
+public:
+    bool isValid(std::string s) {
+        // Write your code here
+        std::stack<char> paren;
+        for (char c : s) {
+            if (c == '(') paren.push(')');
+            else if (c == '{') paren.push('}');
+            else if (c == '[') paren.push(']');
+            else if (paren.empty() || paren.top() != c) return false;
+            else paren.pop();
+        }
+        return paren.empty();
+    }
+};
 
 int main() {
-    // Write your code here
-    std::cout << "Hello, World!" << std::endl;
+    Solution sol;
+    std::string s1 = "()[]{}";
+    std::cout << s1 << " is valid: " << (sol.isValid(s1) ? "true" : "false") << std::endl;
+    std::string s2 = "(]";
+    std::cout << s2 << " is valid: " << (sol.isValid(s2) ? "true" : "false") << std::endl;
     return 0;
 }`
                 },
                 {
-                    title: "Find Maximum of Two Numbers",
-                    description: "Write a C++ program to find the maximum of two numbers entered by the user.",
+                    title: "Reverse String",
+                    description: "Write a C++ function that reverses a string. The input string is given as a vector of characters `s`.",
                     code: `#include <iostream>
+#include <vector>
+#include <algorithm>
+
+class Solution {
+public:
+    void reverseString(std::vector<char>& s) {
+        // Write your code here
+        std::reverse(s.begin(), s.end());
+    }
+};
 
 int main() {
-    int a, b;
-    std::cout << "Enter two numbers: ";
-    std::cin >> a >> b;
-    int max = (a > b) ? a : b;
-    std::cout << "The maximum is: " << max << std::endl;
+    std::vector<char> s = {'h', 'e', 'l', 'l', 'o'};
+    Solution sol;
+    sol.reverseString(s);
+    for (char c : s) {
+        std::cout << c;
+    }
+    std::cout << std::endl;
     return 0;
 }`
                 }
             ],
             python: [
                 {
-                    title: "Print 'Hello, World!'",
-                    description: "Write a Python program that prints the text 'Hello, World!' to the console.",
-                    code: `# Write your code here
-print("Hello, World!")`
-                },
-                {
-                    title: "Reverse a String",
-                    description: "Write a Python function to reverse a given string.",
-                    code: `def reverse_string(s):
+                    title: "Contains Duplicate",
+                    description: "Given an integer array `nums`, return `True` if any value appears at least twice in the array, and return `False` if every element is distinct.",
+                    code: `def contains_duplicate(nums):
     # Write your code here
-    return s[::-1]
+    seen = set()
+    for num in nums:
+        if num in seen:
+            return True
+        seen.add(num)
+    return False
 
 # Example usage:
-my_string = "Python"
-reversed_string = reverse_string(my_string)
-print(f"Original: {my_string}")
-print(f"Reversed: {reversed_string}")
-`
+print(contains_duplicate([1, 2, 3, 1]))  # Expected: True
+print(contains_duplicate([1, 2, 3, 4]))  # Expected: False`
+                },
+                {
+                    title: "Find the Missing Number",
+                    description: "Given an array `nums` containing `n` distinct numbers in the range $[0, n]$, return the only number in the range that is missing from the array.",
+                    code: `def missing_number(nums):
+    # Write your code here
+    n = len(nums)
+    expected_sum = n * (n + 1) // 2
+    actual_sum = sum(nums)
+    return expected_sum - actual_sum
+
+# Example usage:
+print(missing_number([3, 0, 1]))  # Expected: 2
+print(missing_number([9, 6, 4, 2, 3, 5, 7, 0, 1])) # Expected: 8`
                 }
             ]
         };
