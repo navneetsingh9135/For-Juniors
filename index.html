@@ -59,6 +59,8 @@
                 <a href="#materials" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium transition-colors duration-200">Materials</a>
                 <a href="#syllabus" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium transition-colors duration-200">Syllabus</a>
                 <a href="#feedback" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium transition-colors duration-200">Feedback</a>
+                <a href="#cgpa-calculator" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium transition-colors duration-200">CGPA Calculator</a>
+                <a href="#c-quiz" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium transition-colors duration-200">C Quiz</a>
                 <a href="#contact" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium transition-colors duration-200">Contact</a>
                 <button id="themeToggle" class="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500">
                     <svg id="sunIcon" class="h-5 w-5 hidden text-yellow-500 dark:text-yellow-400" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
@@ -284,6 +286,99 @@
             </div>
         </section>
 
+        <!-- CGPA Calculator Section -->
+        <section id="cgpa-calculator" class="py-16">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">
+                    CGPA Calculator
+                </h2>
+                <p class="text-gray-600 dark:text-gray-400 mt-4 max-w-xl mx-auto">
+                    Calculate your Semester Grade Point Average (SGPA) and Cumulative Grade Point Average (CGPA).
+                </p>
+            </div>
+            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 mx-auto max-w-3xl">
+                <div class="flex justify-end mb-4">
+                    <button id="addSubjectBtn" class="bg-indigo-500 text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-indigo-600 transition-colors duration-200">
+                        Add Subject
+                    </button>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                            <tr>
+                                <th scope="col" class="px-6 py-3">Subject</th>
+                                <th scope="col" class="px-6 py-3">Marks</th>
+                                <th scope="col" class="px-6 py-3">Credits</th>
+                                <th scope="col" class="px-6 py-3">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="subjectsTableBody">
+                            <!-- Initial subject rows here -->
+                            <tr class="bg-white dark:bg-gray-800 border-b dark:border-gray-700">
+                                <td class="px-6 py-4 font-medium text-gray-900 dark:text-white">
+                                    <input type="text" class="w-full bg-transparent border-none focus:outline-none" placeholder="Subject 1">
+                                </td>
+                                <td class="px-6 py-4">
+                                    <input type="number" class="w-24 bg-transparent border-none focus:outline-none marks-input" min="0" max="100" placeholder="0-100">
+                                </td>
+                                <td class="px-6 py-4">
+                                    <input type="number" class="w-20 bg-transparent border-none focus:outline-none credits-input" min="1" placeholder="3">
+                                </td>
+                                <td class="px-6 py-4">
+                                    <button class="text-red-600 dark:text-red-400 hover:text-red-800 delete-btn">Delete</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="mt-8 flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 items-center justify-between">
+                    <button id="calculateCgpaBtn" class="w-full md:w-auto bg-indigo-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-indigo-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50">
+                        Calculate CGPA
+                    </button>
+                    <div id="results" class="text-center md:text-right mt-4 md:mt-0 w-full md:w-auto">
+                        <p class="text-lg font-bold text-gray-900 dark:text-white">SGPA: <span id="sgpaResult">0.00</span></p>
+                        <p class="text-lg font-bold text-gray-900 dark:text-white">CGPA: <span id="cgpaResult">0.00</span></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- C Programming Quiz Section -->
+        <section id="c-quiz" class="py-16">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">
+                    C Programming Quiz
+                </h2>
+                <p class="text-gray-600 dark:text-gray-400 mt-4 max-w-xl mx-auto">
+                    Test your knowledge of C programming with this interactive quiz.
+                </p>
+            </div>
+            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 mx-auto max-w-2xl">
+                <div id="quizContainer">
+                    <h3 id="questionText" class="text-xl font-bold text-gray-900 dark:text-white mb-4">Question Text</h3>
+                    <div id="optionsContainer" class="space-y-4">
+                        <!-- Options will be dynamically added here -->
+                    </div>
+                    <div class="mt-8 flex justify-between items-center">
+                        <p class="text-gray-600 dark:text-gray-400">Question <span id="currentQuestionNumber"></span> of <span id="totalQuestions"></span></p>
+                        <button id="nextBtn" class="bg-indigo-600 text-white font-semibold py-2 px-6 rounded-full shadow-lg hover:bg-indigo-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50">
+                            Next
+                        </button>
+                        <button id="submitBtn" class="bg-green-600 text-white font-semibold py-2 px-6 rounded-full shadow-lg hover:bg-green-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 hidden">
+                            Submit
+                        </button>
+                    </div>
+                </div>
+                <div id="quizResult" class="hidden text-center mt-8">
+                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">Quiz Complete!</h3>
+                    <p class="text-xl text-gray-600 dark:text-gray-400">Your score: <span id="scoreDisplay" class="font-bold text-indigo-600">0</span> / <span id="totalQuestionsResult"></span></p>
+                    <button id="restartBtn" class="bg-indigo-600 text-white font-semibold py-2 px-6 rounded-full mt-4 shadow-lg hover:bg-indigo-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50">
+                        Restart Quiz
+                    </button>
+                </div>
+            </div>
+        </section>
+
         <!-- Feedback Section -->
         <section id="feedback" class="py-16">
             <div class="text-center mb-12">
@@ -399,6 +494,207 @@
             showMessage("Thank you for your feedback! Your message has been submitted successfully.");
             feedbackForm.reset();
         });
+
+        // CGPA Calculator Logic
+        const addSubjectBtn = document.getElementById('addSubjectBtn');
+        const subjectsTableBody = document.getElementById('subjectsTableBody');
+        const calculateCgpaBtn = document.getElementById('calculateCgpaBtn');
+        const sgpaResult = document.getElementById('sgpaResult');
+        const cgpaResult = document.getElementById('cgpaResult');
+
+        const gradingScale = {
+            'O': 10, 'A+': 9, 'A': 8, 'B+': 7, 'B': 6, 'C': 5, 'D': 4, 'F': 0
+        };
+
+        function getGradePoint(marks) {
+            if (marks >= 90) return 10;
+            if (marks >= 80) return 9;
+            if (marks >= 70) return 8;
+            if (marks >= 60) return 7;
+            if (marks >= 50) return 6;
+            if (marks >= 40) return 5;
+            return 0;
+        }
+
+        function addSubjectRow() {
+            const newRow = `
+                <tr class="bg-white dark:bg-gray-800 border-b dark:border-gray-700">
+                    <td class="px-6 py-4 font-medium text-gray-900 dark:text-white">
+                        <input type="text" class="w-full bg-transparent border-none focus:outline-none" placeholder="Subject ${subjectsTableBody.children.length + 1}">
+                    </td>
+                    <td class="px-6 py-4">
+                        <input type="number" class="w-24 bg-transparent border-none focus:outline-none marks-input" min="0" max="100" placeholder="0-100">
+                    </td>
+                    <td class="px-6 py-4">
+                        <input type="number" class="w-20 bg-transparent border-none focus:outline-none credits-input" min="1" placeholder="3">
+                    </td>
+                    <td class="px-6 py-4">
+                        <button class="text-red-600 dark:text-red-400 hover:text-red-800 delete-btn">Delete</button>
+                    </td>
+                </tr>
+            `;
+            subjectsTableBody.insertAdjacentHTML('beforeend', newRow);
+        }
+
+        function calculateCgpa() {
+            let totalGradePoints = 0;
+            let totalCredits = 0;
+            const rows = subjectsTableBody.querySelectorAll('tr');
+
+            rows.forEach(row => {
+                const marksInput = row.querySelector('.marks-input');
+                const creditsInput = row.querySelector('.credits-input');
+
+                const marks = parseFloat(marksInput.value);
+                const credits = parseFloat(creditsInput.value);
+
+                if (!isNaN(marks) && !isNaN(credits) && marks >= 0 && marks <= 100 && credits > 0) {
+                    const gradePoint = getGradePoint(marks);
+                    totalGradePoints += gradePoint * credits;
+                    totalCredits += credits;
+                }
+            });
+
+            const sgpa = totalCredits > 0 ? (totalGradePoints / totalCredits).toFixed(2) : '0.00';
+            const cgpa = sgpa; // For a single semester, CGPA is the same as SGPA. You would need to store previous SGPA/credits for true CGPA.
+            
+            sgpaResult.textContent = sgpa;
+            cgpaResult.textContent = cgpa;
+        }
+
+        addSubjectBtn.addEventListener('click', addSubjectRow);
+        calculateCgpaBtn.addEventListener('click', calculateCgpa);
+        subjectsTableBody.addEventListener('click', (e) => {
+            if (e.target.classList.contains('delete-btn')) {
+                e.target.closest('tr').remove();
+                calculateCgpa();
+            }
+        });
+
+        // C Quiz Logic
+        const quizContainer = document.getElementById('quizContainer');
+        const quizResult = document.getElementById('quizResult');
+        const questionText = document.getElementById('questionText');
+        const optionsContainer = document.getElementById('optionsContainer');
+        const nextBtn = document.getElementById('nextBtn');
+        const submitBtn = document.getElementById('submitBtn');
+        const scoreDisplay = document.getElementById('scoreDisplay');
+        const restartBtn = document.getElementById('restartBtn');
+        const currentQuestionNumber = document.getElementById('currentQuestionNumber');
+        const totalQuestionsElement = document.getElementById('totalQuestions');
+        const totalQuestionsResultElement = document.getElementById('totalQuestionsResult');
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let selectedOption = null;
+
+        const quizQuestions = [
+            {
+                question: "Which of the following is not a valid C variable name?",
+                options: ["_a_b_c", "Abc", "abc_123", "1_abc"],
+                correctAnswer: "1_abc"
+            },
+            {
+                question: "Which keyword is used to define a constant in C?",
+                options: ["const", "constant", "define", "#define"],
+                correctAnswer: "const"
+            },
+            {
+                question: "What is the size of 'char' data type in C?",
+                options: ["1 byte", "2 bytes", "4 bytes", "8 bytes"],
+                correctAnswer: "1 byte"
+            },
+            {
+                question: "Which function is used to allocate memory dynamically?",
+                options: ["malloc()", "calloc()", "realloc()", "All of the above"],
+                correctAnswer: "All of the above"
+            },
+            {
+                question: "What is the output of `printf(\"%d\", sizeof(int));` on a 64-bit system?",
+                options: ["2", "4", "8", "Compiler dependent"],
+                correctAnswer: "4"
+            }
+        ];
+
+        totalQuestionsElement.textContent = quizQuestions.length;
+        totalQuestionsResultElement.textContent = quizQuestions.length;
+
+        function showQuestion(index) {
+            // Hide result section if it's visible
+            quizResult.classList.add('hidden');
+            quizContainer.classList.remove('hidden');
+
+            const question = quizQuestions[index];
+            questionText.textContent = question.question;
+            optionsContainer.innerHTML = '';
+            
+            question.options.forEach(option => {
+                const button = document.createElement('button');
+                button.textContent = option;
+                button.classList.add('w-full', 'px-4', 'py-2', 'rounded-lg', 'bg-gray-100', 'dark:bg-gray-700', 'text-left', 'text-gray-800', 'dark:text-white', 'hover:bg-indigo-100', 'dark:hover:bg-indigo-600', 'transition-colors', 'duration-200');
+                
+                button.addEventListener('click', () => {
+                    // Remove 'selected' class from all options
+                    optionsContainer.querySelectorAll('button').forEach(btn => {
+                        btn.classList.remove('bg-indigo-500', 'text-white', 'ring-2', 'ring-indigo-500');
+                        btn.classList.add('bg-gray-100', 'dark:bg-gray-700', 'text-gray-800', 'dark:text-white');
+                    });
+                    
+                    // Add 'selected' class to the clicked button
+                    button.classList.remove('bg-gray-100', 'dark:bg-gray-700', 'text-gray-800', 'dark:text-white');
+                    button.classList.add('bg-indigo-500', 'text-white', 'ring-2', 'ring-indigo-500');
+                    selectedOption = option;
+                });
+                optionsContainer.appendChild(button);
+            });
+            currentQuestionNumber.textContent = index + 1;
+
+            if (index === quizQuestions.length - 1) {
+                nextBtn.classList.add('hidden');
+                submitBtn.classList.remove('hidden');
+            } else {
+                nextBtn.classList.remove('hidden');
+                submitBtn.classList.add('hidden');
+            }
+        }
+
+        function checkAnswer() {
+            if (selectedOption === null) {
+                showMessage("Please select an option before proceeding.");
+                return false;
+            }
+            if (selectedOption === quizQuestions[currentQuestionIndex].correctAnswer) {
+                score++;
+            }
+            selectedOption = null;
+            return true;
+        }
+
+        nextBtn.addEventListener('click', () => {
+            if (checkAnswer()) {
+                currentQuestionIndex++;
+                if (currentQuestionIndex < quizQuestions.length) {
+                    showQuestion(currentQuestionIndex);
+                }
+            }
+        });
+
+        submitBtn.addEventListener('click', () => {
+            if (checkAnswer()) {
+                quizContainer.classList.add('hidden');
+                quizResult.classList.remove('hidden');
+                scoreDisplay.textContent = score;
+            }
+        });
+
+        restartBtn.addEventListener('click', () => {
+            currentQuestionIndex = 0;
+            score = 0;
+            showQuestion(currentQuestionIndex);
+        });
+        
+        // Initial call to show the first question
+        showQuestion(currentQuestionIndex);
     </script>
 </body>
 </html>
