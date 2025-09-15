@@ -60,7 +60,8 @@
                 <a href="#syllabus" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium transition-colors duration-200">Syllabus</a>
                 <a href="#feedback" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium transition-colors duration-200">Feedback</a>
                 <a href="#cgpa-calculator" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium transition-colors duration-200">CGPA Calculator</a>
-                <a href="#c-quiz" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium transition-colors duration-200">C Quiz</a>
+                <a href="#quizzes" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium transition-colors duration-200">Quizzes</a>
+                <a href="#coding-problems" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium transition-colors duration-200">Code Practice</a>
                 <a href="#self-assignments" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium transition-colors duration-200">Assignments</a>
                 <a href="#contact" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium transition-colors duration-200">Contact</a>
                 <button id="themeToggle" class="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500">
@@ -355,17 +356,23 @@
             </div>
         </section>
 
-        <!-- C Programming Quiz Section -->
-        <section id="c-quiz" class="py-16">
+        <!-- Interactive Quizzes Section -->
+        <section id="quizzes" class="py-16">
             <div class="text-center mb-12">
                 <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">
-                    C Programming Quiz
+                    Interactive Quizzes
                 </h2>
                 <p class="text-gray-600 dark:text-gray-400 mt-4 max-w-xl mx-auto">
-                    Test your knowledge of C programming with this interactive quiz.
+                    Test your knowledge on different programming languages.
                 </p>
             </div>
             <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 mx-auto max-w-2xl">
+                <div class="flex flex-wrap justify-center mb-6 space-x-2">
+                    <button id="c-quiz-btn" class="quiz-select-btn bg-indigo-500 text-white px-4 py-2 rounded-full font-semibold transition-colors duration-200 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500">C</button>
+                    <button id="java-quiz-btn" class="quiz-select-btn bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-4 py-2 rounded-full font-semibold transition-colors duration-200 hover:bg-gray-300 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500">Java</button>
+                    <button id="cpp-quiz-btn" class="quiz-select-btn bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-4 py-2 rounded-full font-semibold transition-colors duration-200 hover:bg-gray-300 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500">C++</button>
+                    <button id="python-quiz-btn" class="quiz-select-btn bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-4 py-2 rounded-full font-semibold transition-colors duration-200 hover:bg-gray-300 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500">Python</button>
+                </div>
                 <div id="quizContainer">
                     <h3 id="questionText" class="text-xl font-bold text-gray-900 dark:text-white mb-4">Question Text</h3>
                     <div id="optionsContainer" class="space-y-4">
@@ -387,6 +394,33 @@
                     <button id="restartBtn" class="bg-indigo-600 text-white font-semibold py-2 px-6 rounded-full mt-4 shadow-lg hover:bg-indigo-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50">
                         Restart Quiz
                     </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Daily Coding Problems Section -->
+        <section id="coding-problems" class="py-16">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">
+                    Daily Coding Problems
+                </h2>
+                <p class="text-gray-600 dark:text-gray-400 mt-4 max-w-xl mx-auto">
+                    A new practice problem for each language, every day.
+                </p>
+            </div>
+            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 mx-auto max-w-4xl">
+                <div class="flex flex-wrap justify-center mb-6 space-x-2">
+                    <button id="c-code-btn" class="code-select-btn bg-indigo-500 text-white px-4 py-2 rounded-full font-semibold transition-colors duration-200 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500">C</button>
+                    <button id="java-code-btn" class="code-select-btn bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-4 py-2 rounded-full font-semibold transition-colors duration-200 hover:bg-gray-300 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500">Java</button>
+                    <button id="cpp-code-btn" class="code-select-btn bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-4 py-2 rounded-full font-semibold transition-colors duration-200 hover:bg-gray-300 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500">C++</button>
+                    <button id="python-code-btn" class="code-select-btn bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-4 py-2 rounded-full font-semibold transition-colors duration-200 hover:bg-gray-300 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500">Python</button>
+                </div>
+                
+                <div id="codingProblemContainer">
+                    <h3 id="problemTitle" class="text-xl font-bold text-gray-900 dark:text-white mb-2"></h3>
+                    <p id="problemDescription" class="text-gray-600 dark:text-gray-400 mb-4"></p>
+                    <pre id="problemCode" class="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-white p-4 rounded-lg overflow-x-auto text-sm">
+                    </pre>
                 </div>
             </div>
         </section>
@@ -632,7 +666,7 @@
             }
         });
 
-        // C Quiz Logic
+        // Interactive Quizzes Logic
         const quizContainer = document.getElementById('quizContainer');
         const quizResult = document.getElementById('quizResult');
         const questionText = document.getElementById('questionText');
@@ -644,48 +678,125 @@
         const currentQuestionNumber = document.getElementById('currentQuestionNumber');
         const totalQuestionsElement = document.getElementById('totalQuestions');
         const totalQuestionsResultElement = document.getElementById('totalQuestionsResult');
-
+        const quizSelectBtns = document.querySelectorAll('.quiz-select-btn');
+        let currentQuizKey = 'c';
         let currentQuestionIndex = 0;
         let score = 0;
         let selectedOption = null;
 
-        const quizQuestions = [
-            {
-                question: "Which of the following is not a valid C variable name?",
-                options: ["_a_b_c", "Abc", "abc_123", "1_abc"],
-                correctAnswer: "1_abc"
-            },
-            {
-                question: "Which keyword is used to define a constant in C?",
-                options: ["const", "constant", "define", "#define"],
-                correctAnswer: "const"
-            },
-            {
-                question: "What is the size of 'char' data type in C?",
-                options: ["1 byte", "2 bytes", "4 bytes", "8 bytes"],
-                correctAnswer: "1 byte"
-            },
-            {
-                question: "Which function is used to allocate memory dynamically?",
-                options: ["malloc()", "calloc()", "realloc()", "All of the above"],
-                correctAnswer: "All of the above"
-            },
-            {
-                question: "What is the output of `printf(\"%d\", sizeof(int));` on a 64-bit system?",
-                options: ["2", "4", "8", "Compiler dependent"],
-                correctAnswer: "4"
-            }
-        ];
+        const quizData = {
+            c: [
+                {
+                    question: "Which of the following is not a valid C variable name?",
+                    options: ["_a_b_c", "Abc", "abc_123", "1_abc"],
+                    correctAnswer: "1_abc"
+                },
+                {
+                    question: "Which keyword is used to define a constant in C?",
+                    options: ["const", "constant", "define", "#define"],
+                    correctAnswer: "const"
+                },
+                {
+                    question: "What is the size of 'char' data type in C?",
+                    options: ["1 byte", "2 bytes", "4 bytes", "8 bytes"],
+                    correctAnswer: "1 byte"
+                },
+                {
+                    question: "Which function is used to allocate memory dynamically?",
+                    options: ["malloc()", "calloc()", "realloc()", "All of the above"],
+                    correctAnswer: "All of the above"
+                },
+                {
+                    question: "What is the output of `printf(\"%d\", sizeof(int));` on a 64-bit system?",
+                    options: ["2", "4", "8", "Compiler dependent"],
+                    correctAnswer: "4"
+                }
+            ],
+            java: [
+                {
+                    question: "Which of the following is not a Java keyword?",
+                    options: ["class", "interface", "boolean", "main"],
+                    correctAnswer: "main"
+                },
+                {
+                    question: "What is the entry point of a Java program?",
+                    options: ["main()", "start()", "run()", "public static void main(String[] args)"],
+                    correctAnswer: "public static void main(String[] args)"
+                },
+                {
+                    question: "Which of these is used for multi-line comments in Java?",
+                    options: ["// comment", "/* comment */", "# comment", "-- comment"],
+                    correctAnswer: "/* comment */"
+                },
+                {
+                    question: "Which of the following is a primitive data type in Java?",
+                    options: ["String", "Integer", "int", "Array"],
+                    correctAnswer: "int"
+                }
+            ],
+            cpp: [
+                {
+                    question: "Which symbol is used to indicate the end of a statement in C++?",
+                    options: [";", ".", "!", ","],
+                    correctAnswer: ";"
+                },
+                {
+                    question: "Which header file is required for `cout` and `cin`?",
+                    options: ["<iostream>", "<stdio.h>", "<string>", "<vector>"],
+                    correctAnswer: "<iostream>"
+                },
+                {
+                    question: "What is the correct way to declare a constant integer `x` with value 10?",
+                    options: ["const int x = 10;", "int x = 10;", "int const x = 10;", "Both A and C are correct"],
+                    correctAnswer: "Both A and C are correct"
+                },
+                {
+                    question: "Which of the following is a valid C++ access specifier?",
+                    options: ["public", "private", "protected", "All of the above"],
+                    correctAnswer: "All of the above"
+                }
+            ],
+            python: [
+                {
+                    question: "Which keyword is used to define a function in Python?",
+                    options: ["function", "def", "func", "define"],
+                    correctAnswer: "def"
+                },
+                {
+                    question: "What is the correct way to comment a single line in Python?",
+                    options: ["// comment", "/* comment */", "# comment", "-- comment"],
+                    correctAnswer: "# comment"
+                },
+                {
+                    question: "What is the data type of `[1, 2, 3]`?",
+                    options: ["tuple", "list", "dict", "array"],
+                    correctAnswer: "list"
+                },
+                {
+                    question: "Which of the following is a mutable data type?",
+                    options: ["tuple", "string", "list", "int"],
+                    correctAnswer: "list"
+                }
+            ]
+        };
 
-        totalQuestionsElement.textContent = quizQuestions.length;
-        totalQuestionsResultElement.textContent = quizQuestions.length;
+        function loadQuiz(quizKey) {
+            currentQuizKey = quizKey;
+            currentQuestionIndex = 0;
+            score = 0;
+            selectedOption = null;
+            totalQuestionsElement.textContent = quizData[currentQuizKey].length;
+            totalQuestionsResultElement.textContent = quizData[currentQuizKey].length;
+            showQuestion(currentQuestionIndex);
+        }
 
         function showQuestion(index) {
             // Hide result section if it's visible
             quizResult.classList.add('hidden');
             quizContainer.classList.remove('hidden');
 
-            const question = quizQuestions[index];
+            const questions = quizData[currentQuizKey];
+            const question = questions[index];
             questionText.textContent = question.question;
             optionsContainer.innerHTML = '';
             
@@ -710,7 +821,7 @@
             });
             currentQuestionNumber.textContent = index + 1;
 
-            if (index === quizQuestions.length - 1) {
+            if (index === questions.length - 1) {
                 nextBtn.classList.add('hidden');
                 submitBtn.classList.remove('hidden');
             } else {
@@ -724,7 +835,7 @@
                 showMessage("Please select an option before proceeding.");
                 return false;
             }
-            if (selectedOption === quizQuestions[currentQuestionIndex].correctAnswer) {
+            if (selectedOption === quizData[currentQuizKey][currentQuestionIndex].correctAnswer) {
                 score++;
             }
             selectedOption = null;
@@ -734,7 +845,7 @@
         nextBtn.addEventListener('click', () => {
             if (checkAnswer()) {
                 currentQuestionIndex++;
-                if (currentQuestionIndex < quizQuestions.length) {
+                if (currentQuestionIndex < quizData[currentQuizKey].length) {
                     showQuestion(currentQuestionIndex);
                 }
             }
@@ -753,9 +864,168 @@
             score = 0;
             showQuestion(currentQuestionIndex);
         });
+
+        // Event listeners for quiz selection buttons
+        quizSelectBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const quizKey = e.target.id.replace('-quiz-btn', '');
+                quizSelectBtns.forEach(b => {
+                    b.classList.remove('bg-indigo-500', 'text-white');
+                    b.classList.add('bg-gray-200', 'dark:bg-gray-700', 'text-gray-800', 'dark:text-white');
+                });
+                e.target.classList.remove('bg-gray-200', 'dark:bg-gray-700', 'text-gray-800', 'dark:text-white');
+                e.target.classList.add('bg-indigo-500', 'text-white');
+                loadQuiz(quizKey);
+            });
+        });
         
-        // Initial call to show the first question
-        showQuestion(currentQuestionIndex);
+        // Initial call to show the first quiz
+        loadQuiz('c');
+
+        // Daily Coding Problems Logic
+        const codeSelectBtns = document.querySelectorAll('.code-select-btn');
+        const problemTitle = document.getElementById('problemTitle');
+        const problemDescription = document.getElementById('problemDescription');
+        const problemCode = document.getElementById('problemCode');
+        
+        const codingProblems = {
+            c: [
+                {
+                    title: "Print 'Hello, World!'",
+                    description: "Write a C program that prints the text 'Hello, World!' to the console.",
+                    code: `#include <stdio.h>
+
+int main() {
+    // Write your code here
+    printf("Hello, World!");
+    return 0;
+}`
+                },
+                {
+                    title: "Sum of Two Numbers",
+                    description: "Write a C program to take two integers from the user and print their sum.",
+                    code: `#include <stdio.h>
+
+int main() {
+    int a, b;
+    printf("Enter two integers: ");
+    scanf("%d %d", &a, &b);
+    int sum = a + b;
+    printf("Sum: %d", sum);
+    return 0;
+}`
+                }
+            ],
+            java: [
+                {
+                    title: "Print 'Hello, World!'",
+                    description: "Write a Java program that prints the text 'Hello, World!' to the console.",
+                    code: `class HelloWorld {
+    public static void main(String[] args) {
+        // Write your code here
+        System.out.println("Hello, World!");
+    }
+}`
+                },
+                {
+                    title: "Check Even or Odd",
+                    description: "Write a Java program to check if an integer is even or odd.",
+                    code: `import java.util.Scanner;
+
+class CheckEvenOdd {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter an integer: ");
+        int num = scanner.nextInt();
+        if (num % 2 == 0) {
+            System.out.println(num + " is Even");
+        } else {
+            System.out.println(num + " is Odd");
+        }
+    }
+}`
+                }
+            ],
+            cpp: [
+                {
+                    title: "Print 'Hello, World!'",
+                    description: "Write a C++ program that prints the text 'Hello, World!' to the console.",
+                    code: `#include <iostream>
+
+int main() {
+    // Write your code here
+    std::cout << "Hello, World!" << std::endl;
+    return 0;
+}`
+                },
+                {
+                    title: "Find Maximum of Two Numbers",
+                    description: "Write a C++ program to find the maximum of two numbers entered by the user.",
+                    code: `#include <iostream>
+
+int main() {
+    int a, b;
+    std::cout << "Enter two numbers: ";
+    std::cin >> a >> b;
+    int max = (a > b) ? a : b;
+    std::cout << "The maximum is: " << max << std::endl;
+    return 0;
+}`
+                }
+            ],
+            python: [
+                {
+                    title: "Print 'Hello, World!'",
+                    description: "Write a Python program that prints the text 'Hello, World!' to the console.",
+                    code: `# Write your code here
+print("Hello, World!")`
+                },
+                {
+                    title: "Reverse a String",
+                    description: "Write a Python function to reverse a given string.",
+                    code: `def reverse_string(s):
+    # Write your code here
+    return s[::-1]
+
+# Example usage:
+my_string = "Python"
+reversed_string = reverse_string(my_string)
+print(f"Original: {my_string}")
+print(f"Reversed: {reversed_string}")
+`
+                }
+            ]
+        };
+
+        function loadDailyProblem(language) {
+            const today = new Date();
+            const dayOfMonth = today.getDate();
+            const problems = codingProblems[language];
+            // Use modulo to cycle through the available problems based on the day of the month.
+            const index = (dayOfMonth - 1) % problems.length;
+            const problem = problems[index];
+
+            problemTitle.textContent = problem.title;
+            problemDescription.textContent = problem.description;
+            problemCode.textContent = problem.code;
+        }
+
+        codeSelectBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const language = e.target.id.replace('-code-btn', '');
+                codeSelectBtns.forEach(b => {
+                    b.classList.remove('bg-indigo-500', 'text-white');
+                    b.classList.add('bg-gray-200', 'dark:bg-gray-700', 'text-gray-800', 'dark:text-white');
+                });
+                e.target.classList.remove('bg-gray-200', 'dark:bg-gray-700', 'text-gray-800', 'dark:text-white');
+                e.target.classList.add('bg-indigo-500', 'text-white');
+                loadDailyProblem(language);
+            });
+        });
+
+        // Initial load of the daily problem for C
+        loadDailyProblem('c');
+
     </script>
 </body>
 </html>
