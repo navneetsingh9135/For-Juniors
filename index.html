@@ -237,6 +237,54 @@
                         Read Now
                     </a>
                 </div>
+                
+                <!-- New Material Card for GeeksforGeeks Python Notes -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 flex flex-col items-center text-center transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+                    <img src="https://placehold.co/100x100/3776AB/ffffff?text=PYTHON" alt="Python icon" class="w-16 h-16 mb-4 rounded-full bg-blue-300 p-2">
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">GeeksforGeeks Python Notes</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                        Access a comprehensive Python programming tutorial from GeeksforGeeks.
+                    </p>
+                    <a href="https://www.geeksforgeeks.org/python/python-programming-language-tutorial/" target="_blank" rel="noopener noreferrer" class="text-indigo-600 dark:text-indigo-400 font-medium hover:underline">
+                        Read Now
+                    </a>
+                </div>
+                
+                <!-- New Material Card for GeeksforGeeks JavaScript Notes -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 flex flex-col items-center text-center transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+                    <img src="https://placehold.co/100x100/f7df1e/000000?text=JS" alt="JavaScript icon" class="w-16 h-16 mb-4 rounded-full bg-yellow-300 p-2">
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">GeeksforGeeks JavaScript Notes</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                        Access a comprehensive JavaScript programming tutorial from GeeksforGeeks.
+                    </p>
+                    <a href="https://www.geeksforgeeks.org/javascript/javascript-tutorial/" target="_blank" rel="noopener noreferrer" class="text-indigo-600 dark:text-indigo-400 font-medium hover:underline">
+                        Read Now
+                    </a>
+                </div>
+                
+                <!-- New Material Card for GeeksforGeeks HTML/CSS Notes -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 flex flex-col items-center text-center transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+                    <img src="https://placehold.co/100x100/e34c26/ffffff?text=HTML" alt="HTML/CSS icon" class="w-16 h-16 mb-4 rounded-full bg-orange-400 p-2">
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">GeeksforGeeks HTML/CSS Notes</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                        Comprehensive tutorials and notes on HTML and CSS from GeeksforGeeks.
+                    </p>
+                    <a href="https://www.geeksforgeeks.org/html/html-css/" target="_blank" rel="noopener noreferrer" class="text-indigo-600 dark:text-indigo-400 font-medium hover:underline">
+                        Read Now
+                    </a>
+                </div>
+
+                <!-- New Material Card for DSA Tutorial -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 flex flex-col items-center text-center transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+                    <img src="https://placehold.co/100x100/5E35B1/ffffff?text=DSA" alt="DSA icon" class="w-16 h-16 mb-4 rounded-full bg-purple-200 p-2">
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">DSA Tutorial</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                        Learn core Data Structures and Algorithms with this comprehensive tutorial.
+                    </p>
+                    <a href="https://www.geeksforgeeks.org/learn-data-structures-and-algorithms-dsa-tutorial/" target="_blank" rel="noopener noreferrer" class="text-indigo-600 dark:text-indigo-400 font-medium hover:underline">
+                        Read Now
+                    </a>
+                </div>
 
                 <!-- Material Card 3 (Video Lectures) -->
                 <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 flex flex-col items-center text-center transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
@@ -874,7 +922,7 @@
         restartBtn.addEventListener('click', () => {
             currentQuestionIndex = 0;
             score = 0;
-            showQuestion(currentQuestionIndex);
+            showQuestion(currentQuizKey, currentQuestionIndex);
         });
 
         // Event listeners for quiz selection buttons
